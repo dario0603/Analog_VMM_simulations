@@ -2,7 +2,6 @@
 
 <p align="left">
   <a href="https://www.cadence.com"><img src="https://img.shields.io/badge/Cadence-Virtuoso-000000?style=flat&logo=cadence&logoColor=white" alt="Cadence Virtuoso"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Simulator-Spectre-003366?style=flat" alt="Spectre Simulator"></a>
   <a href="#"><img src="https://img.shields.io/badge/Status-Completed-success?style=flat" alt="Status"></a>
   <a href="./Analog%20VMM%20analysis.pdf"><img src="https://img.shields.io/badge/Report-PDF-red?style=flat&logo=adobe-acrobat-reader&logoColor=white" alt="Report PDF"></a>
   <a href="./Analog%20VMM%20analysis.pptx"><img src="https://img.shields.io/badge/Presentation-PowerPoint-D04423?style=flat&logo=microsoft-powerpoint&logoColor=white" alt="Presentation PowerPoint"></a>
@@ -33,7 +32,7 @@ $$w = \frac{I_{\text{slave}}}{I_{\text{master}}} = e^{\frac{\Delta V_{\text{th}}
 ## Circuit & Physical Layout Design
 
 * **Sub-Threshold Cell Operation:** All multiplying n-MOS cells are constrained to weak inversion ($I_{\text{ds}} \le 25\text{ nA}$) to guarantee exponential dynamic response and minimal power consumption.
-* **Floating-Gate Cell:** Designed with $W_n/L_n = 1\,\mu\text{m} / 0.8\,\mu\text{m}$ and a series p-cap ($W_{\text{pcap}} \times L_{\text{pcap}} = 5\,\mu\text{m} \times 5\,\mu\text{m}$).
+* **Floating-Gate Cell:** Designed with $W_n/L_n = 1\mu\text{m} / 0.8\mu\text{m}$ and a series p-cap ($W_{\text{pcap}} \times L_{\text{pcap}} = 5\mu\text{m} \times 2\mu\text{m}$).
 * **Full Physical Layout:** Executed full physical layout matching custom DRC/LVS design rules ($L_{\min} = 240\text{ nm}$, $W_{\min} = 340\text{ nm}$) for both single floating-gate cells and the complete $4 \times 4$ core array.
 
 | Floating Gate Unit Cell Layout | $4 \times 4$ VMM Matrix Array Layout |
@@ -46,7 +45,7 @@ $$w = \frac{I_{\text{slave}}}{I_{\text{master}}} = e^{\frac{\Delta V_{\text{th}}
 
 Extensive Spectre transient and noise spectral analyses were conducted in **Cadence Virtuoso** to evaluate Figure of Merits (FOMs) such as **SNR**, **THD**, **SINAD**, and **ENOB**:
 
-$$\text{ENOB} = \frac{\text{SINAD} - 1.76}{6.02}$$
+$$\text{ENOB} \simeq \frac{\text{SINAD} - 1.76}{6.02}$$
 
 ### 1. Dependence on Input Current Amplitude ($I_{\text{out}}$)
 As input current increases, signal power grows while thermal noise floor remains constant, boosting SNR and ENOB ($>5\text{ bits}$ achieved at higher current levels).
